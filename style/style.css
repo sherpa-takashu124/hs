@@ -1,0 +1,132 @@
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                background-color: #bbb;
+            }
+            
+            .header {
+                background-color: bisque;
+                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+                position: fixed;
+                width: 100%;
+                z-index: 3;
+            }
+            
+            .header ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                overflow: hidden;
+            }
+            
+            .header ul a {
+                display: block;
+                padding: 20px;
+                color: black;
+                font-size: 1.1em;
+                text-decoration: none;
+            }
+            
+            .header ul a:hover {
+                background-color: burlywood;
+            }
+            
+            .header .logo {
+                float: left;
+                font-family: cursive;
+                display: block;
+                font-size: 2em;
+                color: lightcoral;
+                padding: 10px;
+                text-decoration: none;
+            }
+            
+            .header .menu {
+                clear: both;
+                max-height: 0;
+                transition: max-height, .2s ease-in;
+            }
+            
+            .header .menu_icon {
+                padding: 28px 20px;
+                position: relative;
+                float: right;
+                cursor: pointer;
+            }
+            
+            .header .menu_icon .nav_icon {
+                background: #333;
+                display: block;
+                height: 2px;
+                width: 18px;
+                position: relative;
+                transition: background .2s ease-out;
+            }
+            
+            .header .menu_icon .nav_icon:before {
+                background: #333;
+                display: block;
+                content: "";
+                height: 100%;
+                width: 18px;
+                position: absolute;
+                top: 6px;
+                transition: all .2s ease-out;
+            }
+            
+            .header .menu_icon .nav_icon:after {
+                background: #333;
+                display: block;
+                content: "";
+                height: 100%;
+                width: 18px;
+                position: absolute;
+                bottom: 6px;
+                transition: all .2s ease-out;
+            }
+            
+            .header .menu_btn {
+                display: none;
+            }
+            /* on this when check box checked the .menu class which ul 
+             paila hamile yeslie 0px height deko chau tei bhayera  hidden cha  now we set height 
+             240px thats why yo aba visible huncha with css transition animation */
+            
+            .header .menu_btn:checked~.menu {
+                max-height: 240px;
+            }
+            
+            .header .menu_btn:checked~.menu_icon .nav_icon {
+                background: transparent;
+            }
+            
+            .header .menu_btn:checked~.menu_icon .nav_icon:after {
+                transform: rotate(45deg);
+                top: 0
+            }
+            
+            .header .menu_btn:checked~.menu_icon .nav_icon:before {
+                transform: rotate(-45deg);
+                top: 0
+            }
+            
+            @media(min-width:48em) {
+                .header li {
+                    float: left;
+                }
+                .header li a {
+                    padding: 20px;
+                }
+                .header .menu {
+                    clear: none;
+                    float: right;
+                    max-height: none;
+                }
+                .header .menu_icon {
+                    display: none;
+                }
+            }
